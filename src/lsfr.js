@@ -32,4 +32,4 @@ class LSFR {
   }
 }
 
-module.exports = LSFR;
+export default LSFR

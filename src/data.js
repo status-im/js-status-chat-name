@@ -3097,4 +3097,4 @@ const adjectives = [
   "Yellowgreen",
 ];
 
-module.exports = { animals, adjectives };
+export { animals, adjectives };

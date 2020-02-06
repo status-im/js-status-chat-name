@@ -1,7 +1,5 @@
-#!/usr/bin/env node
-
-const data = require('./data.js');
-const LSFR = require('./lsfr.js');
+import { animals, adjectives } from './data.js'
+import LSFR from './lsfr.js'
 
 function dropHexPrefix(str) {
   return str.substring(2)
@@ -30,13 +28,13 @@ function uncompressedPublicKeyToChatName(pubKeyStr) {
   
   let gen = new LSFR(poly, seed);
   
-  let adjec1 = gen.next() % BigInt(data.adjectives.length);
-  let adjec2 = gen.next() % BigInt(data.adjectives.length);
-  let animal = gen.next() % BigInt(data.animals.length);
+  let adjec1 = gen.next() % BigInt(adjectives.length);
+  let adjec2 = gen.next() % BigInt(adjectives.length);
+  let animal = gen.next() % BigInt(animals.length);
   return [
-    data.adjectives[adjec1],
-    data.adjectives[adjec2],
-    data.animals[animal],
+    adjectives[adjec1],
+    adjectives[adjec2],
+    animals[animal],
   ]
 }
 
