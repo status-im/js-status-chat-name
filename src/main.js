@@ -2,7 +2,7 @@ import { animals, adjectives } from './data.js'
 import LSFR from './lsfr.js'
 
 function dropHexPrefixAndControlByt(str) {
-  return str.substring(4)
+  return str.replace(/^0x04/, "")
 }
 
 function extractXFromPubKey(str) { 
@@ -35,14 +35,14 @@ function chatKeyToChatName(pubKeyStr) {
   /* Public key consists of two values, X and Y. */
   let pubKeyX = extractXFromPubKey(pubKey)
   
-  let seed = pubKeyX;
-  let poly = BigInt(184);
+  let seed = pubKeyX
+  let poly = BigInt(184)
   
-  let gen = new LSFR(poly, seed);
+  let gen = new LSFR(poly, seed)
   
-  let adjec1 = gen.next() % BigInt(adjectives.length);
-  let adjec2 = gen.next() % BigInt(adjectives.length);
-  let animal = gen.next() % BigInt(animals.length);
+  let adjec1 = gen.next() % BigInt(adjectives.length)
+  let adjec2 = gen.next() % BigInt(adjectives.length)
+  let animal = gen.next() % BigInt(animals.length)
   return [
     adjectives[adjec1],
     adjectives[adjec2],
