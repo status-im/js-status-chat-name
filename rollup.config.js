@@ -4,11 +4,11 @@ export default {
   input: 'src/main.js',
   output: [
     {
-      file: 'dist/status-name-gen.js',
+      file: 'dist/status-chat-name.js',
       format: 'cjs'
     },
     {
-      file: 'dist/status-name-gen.min.js',
+      file: 'dist/status-chat-name.min.js',
       format: 'iife',
       name: 'version',
       plugins: [terser()]
