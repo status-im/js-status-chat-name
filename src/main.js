@@ -50,4 +50,4 @@ function chatKeyToChatName(pubKeyStr) {
   ]
 }
 
-export { uncompressedPublicKeyToChatName }
+export { chatKeyToChatName }

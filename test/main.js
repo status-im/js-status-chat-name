@@ -1,5 +1,5 @@
 import { test } from 'zora'
-import { uncompressedPublicKeyToChatName } from '../src/main.js'
+import { chatKeyToChatName } from '../src/main.js'
 
 const testCases = [
   { name: ["Enormous", "Vain", "Angwantibo"],
@@ -22,9 +22,9 @@ const testCases = [
     key: "0x040bc5bdbd8edf82962b191e80541d7ca8868920b1b415fcd999d6bd723cbbcff17f34e1e6e0484c11d9c7c63b164878a6da3173a49ceaf5fea2faac98928f8a47" },
 ]
 
-test('uncompressedPublicKeyToChatName', t => {
+test('chatKeyToChatName', t => {
   for (let c of testCases) {
-    let chatName = uncompressedPublicKeyToChatName(c.key)
+    let chatName = chatKeyToChatName(c.key)
     t.equal(chatName, c.name, `should return ${c.name.join(' ')}`)
   }
 })
