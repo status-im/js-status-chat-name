@@ -4,13 +4,14 @@ export default {
   input: 'src/main.js',
   output: [
     {
+      name: 'StatusIm',
       file: 'dist/status-chat-name.js',
-      format: 'cjs'
+      format: 'iife',
     },
     {
+      name: 'StatusIm',
       file: 'dist/status-chat-name.min.js',
       format: 'iife',
-      name: 'version',
       plugins: [terser()]
     }
   ],
