@@ -2,12 +2,8 @@ import { test } from 'zora'
 import { uncompressedPublicKeyToChatName } from '../src/main.js'
 
 const testCases = [
-  { name: ['Studious', 'Gold', 'Mustang'],
-    key: "0x0461f576da67dc0bca9888cdb4cb28c80285b756b324109da94a081585ed6f007cf00afede6b3ee5638593674fee100b590318fc7bdb0054b8dd9445acea216ad2" },
   { name: ["Enormous", "Vain", "Angwantibo"],
     key: "0x041c678bdeb6940df3e436cee76612ae6177f46e54e541fc024b572fafd9be89ba43612d6e26bba8f3961b5d379efe1fb031a718ea24936a83550086f4ba2c5c94" },
-  { name: ["Smoggy", "Noteworthy", "Ivorybackedwoodswallow"],
-    key: "0x0417b1f4e7e0d2ab09381875d66c4ac9fd1a576cfe3886955d08cfa57d5c204f22f90f27f2a9f575b59e63999ffe399e80b15a7cecbf1c4e3d6fb87b047944f1d9" },
   { name: ["Grandiose", "Cooperative", "Kitfox"],
     key: "0x0447b772a4bb239b78d20f980e88c015d885e174b78654bbf7c35f38b1d9b73197decf7d769a7da261089e32f740154a6c8a33c577c0debc9caa57d2803fc29c4c" },
   { name: ["Quarrelsome", "Equatorial", "Curlew"],
