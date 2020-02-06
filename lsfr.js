@@ -1,8 +1,6 @@
-const bigInt = require("big-integer");
-
-const ZERO = bigInt(0)
-const ONE = bigInt(1)
-const UINT64 = bigInt("FFFFFFFFFFFFFFFF", 16)
+const ZERO = BigInt(0)
+const ONE = BigInt(1)
+const UINT64 = BigInt("0xFFFFFFFFFFFFFFFF")
 
 class LSFR {
   constructor(poly, seed) {
@@ -13,17 +11,17 @@ class LSFR {
   next() {
     let bit = ZERO;
 
-    for (let i = 0; i < 64; i++) {
-      let c = this.poly.and(bigInt(1).shiftLeft(i)).and(UINT64)
-      if (!c.isZero()) {
-        bit = bit.xor(this.data.shiftRight(i)).and(UINT64);
+    for (let i = ZERO; i < BigInt(64); i++) {
+      let c = (this.poly & (ONE << i)) & UINT64
+      if (c != ZERO) {
+        bit = (bit ^ (this.data >> i)) & UINT64
       }
     }
-    bit = bit.and(1).and(UINT64);
+    bit = (bit & ONE) & UINT64;
 
-    let w = this.data.shiftLeft(ONE).and(UINT64)
+    let w = (this.data << ONE) & UINT64
 
-    this.data = w.or(bit);
+    this.data = w | bit;
 
     return this.data;
   }
