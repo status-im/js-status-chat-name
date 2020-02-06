@@ -2,12 +2,17 @@ import { animals, adjectives } from './data.js'
 import LSFR from './lsfr.js'
 
 function dropHexPrefixAndControlByt(str) {
+  /**
+   * 04 is the prefix of an uncompressed public key.
+   * For more details see:
+   * https://github.com/bitcoin-core/secp256k1/blob/0d9540b1/include/secp256k1.h#L180
+   **/
   return str.replace(/^0x04/, '')
 }
 
 function extractXFromPubKey(str) { 
   if (str.length != 128) {
-    throw 'Wrong Hex length for public key!'
+    throw new Error('Should consists of 2x64 characters.')
   }
   /**
    * We need to parse the 8 least significant bytes of X.
@@ -17,19 +22,24 @@ function extractXFromPubKey(str) {
   return BigInt('0x'+str.substring(48, 64), 16)
 }
 
-function chatKeyToChatName(pubKeyStr) {
+const validatePublicKey = (pubKeyStr) => {
+  /* We accept only strings for now. */
   if (typeof pubKeyStr != 'string') {
-    throw 'Only type string argument is accepted.'
+    throw new TypeError('Only type string argument is accepted.')
   }
-  /**
-   * 0x indicates the hexadecimal format of string.
-   * 04 is the prefix of an uncompressed public key.
-   * For more details see:
-   * https://github.com/bitcoin-core/secp256k1/blob/0d9540b1/include/secp256k1.h#L180
-   **/
+  /* Public key must be 130 characters long. */
+  if (pubKeyStr.length != 132) {
+    throw new Error('Wrong key length, expected 132 characters.')
+  }
+  /* Chat keys are represented as a hexadecimal with a control byte */
   if (!pubKeyStr.startsWith('0x04')) {
-    throw 'Not a viable uncompressed public key.'
+    throw new Error('Expected a 0x04 prefix for uncompressed public key.')
   }
+}
+
+function chatKeyToChatName(pubKeyStr) {
+  /* Verify the passed string is a Status chat key. */
+  validatePublicKey(pubKeyStr)
   /* The actual data is after the control byte. */
   let pubKey = dropHexPrefixAndControlByt(pubKeyStr)
   /* Public key consists of two values, X and Y. */
@@ -43,6 +53,7 @@ function chatKeyToChatName(pubKeyStr) {
   let adjec1 = gen.next() % BigInt(adjectives.length)
   let adjec2 = gen.next() % BigInt(adjectives.length)
   let animal = gen.next() % BigInt(animals.length)
+
   return [
     adjectives[adjec1],
     adjectives[adjec2],
