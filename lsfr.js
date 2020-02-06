@@ -1,5 +1,10 @@
 const ZERO = BigInt(0)
 const ONE = BigInt(1)
+// In `go` we use `uint64` for both `bit` and `data`.
+// This is capped to 64bits.
+// When shifting left, this value might "overflow", meaning that any bit in position greater than 64 will be set to `0` (in golang it just does not exist).
+// In the js implementation we use bigInt, which are not capped, therefore shifting left actually preserves those bytes, and results in a different calculation.
+// To avoid this we always `and` any value with the mask `0xffffffffffffffff` which only preserves the 64 least significant bits.
 const UINT64 = BigInt("0xFFFFFFFFFFFFFFFF")
 
 class LSFR {
