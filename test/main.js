@@ -1,6 +1,7 @@
 import { test } from 'zora'
 import { chatKeyToChatName } from '../src/main.js'
 
+/* Test cases generated using cases.go */
 const testCases = [
   { name: "Enormous Vain Angwantibo",
     key: "0x041c678bdeb6940df3e436cee76612ae6177f46e54e541fc024b572fafd9be89ba43612d6e26bba8f3961b5d379efe1fb031a718ea24936a83550086f4ba2c5c94" },
