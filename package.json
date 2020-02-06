@@ -1,6 +1,6 @@
 {
   "name": "js-status-chat-name",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JS Library for generating Status chat names from keys.",
   "main": "index.js",
   "repository": "https://github.com/status-im/js-status-chat-name",

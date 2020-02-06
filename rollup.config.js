@@ -24,10 +24,12 @@ export default {
     },
     {
       name: name,
-      banner: banner,
+      banner: `/* Meta: ${pkg.name} ${pkg.version} */`,
       file: 'dist/status-chat-name.min.js',
       format: 'iife',
-      plugins: [terser()]
+      plugins: [
+        terser({output: {comments: /Meta:/}})
+      ]
     }
   ],
 }
