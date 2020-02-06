@@ -1,3 +1,12 @@
+
+/**
+ * Name:    js-status-chat-name
+ * Version: 1.0.0
+ * Author:  Jakub Sokołowski <jakub@status.im>
+ * Source:  https://github.com/status-im/js-status-chat-name
+ * License: MIT
+ **/
+
 var StatusIm = (function () {
   'use strict';
 
