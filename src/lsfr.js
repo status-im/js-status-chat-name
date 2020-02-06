@@ -15,6 +15,9 @@ const ONE = BigInt(1)
 const UINT64 = BigInt("0xFFFFFFFFFFFFFFFF")
 
 /**
+ * Linear-Feedback Shift Register algorithm
+ * For details: https://en.wikipedia.org/wiki/Linear-feedback_shift_register
+ * 
  * This implementation is based on the GoLang one in status-go:
  * https://github.com/status-im/status-go/tree/develop/protocol/identity/alias
  **/

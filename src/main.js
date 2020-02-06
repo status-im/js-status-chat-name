@@ -48,8 +48,10 @@ function chatKeyToChatName(pubKeyStr) {
   let seed = pubKeyX
   let poly = BigInt(184)
   
+  /* Linear-Feedback Shift Register */
   let gen = new LSFR(poly, seed)
   
+  /* Pick words based on modulo of generated number */
   let adjec1 = gen.next() % BigInt(adjectives.length)
   let adjec2 = gen.next() % BigInt(adjectives.length)
   let animal = gen.next() % BigInt(animals.length)
