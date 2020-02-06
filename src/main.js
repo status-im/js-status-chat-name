@@ -63,4 +63,7 @@ function chatKeyToChatName(pubKeyStr) {
   ].join(' ')
 }
 
-export { chatKeyToChatName }
+/* Main object */
+const StatusIm = { chatKeyToChatName }
+
+export default StatusIm
