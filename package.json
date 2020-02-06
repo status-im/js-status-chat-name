@@ -7,10 +7,13 @@
   "author": "Jakub Sokołowski <jakub@status.im>",
   "license": "MIT",
   "scripts": {
-    "build": "node_modules/.bin/rollup -c"
+    "build": "node_modules/.bin/rollup -c",
+    "test": "node -r esm test/main.js"
   },
   "devDependencies": {
+    "esm": "^3.2.25",
     "rollup": "^1.31.0",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "^5.2.0",
+    "zora": "^3.1.8"
   }
 }
