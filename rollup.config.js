@@ -16,20 +16,24 @@ const banner = `
 export default {
   input: 'src/main.js',
   output: [
-    {
+    { /* NodeJS */
+      name: name,
+      banner: banner,
+      file: 'dist/status-chat-name.node.js',
+      format: 'cjs',
+    },
+    { /* Browser */
       name: name,
       banner: banner,
       file: 'dist/status-chat-name.js',
       format: 'iife',
     },
-    {
+    { /* Browser Minified */
       name: name,
       banner: `/* Meta: ${pkg.name} ${pkg.version} */`,
       file: 'dist/status-chat-name.min.js',
       format: 'iife',
-      plugins: [
-        terser({output: {comments: /Meta:/}})
-      ]
+      plugins: [ terser({output: {comments: /Meta:/}}) ]
     }
   ],
 }
