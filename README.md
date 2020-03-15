@@ -4,7 +4,7 @@ This is a JavaScript library for convering a Status chat key ot a chat name.
 
 # Details
 
-This implementation is based off of a GoLang one in [`status-im/status-go`](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) repo.
+This implementation is based off of a GoLang one in [`status-im/status-go`](https://github.com/status-im/status-go/tree/develop/protocol/identity/alias) repo.
 
 It uses the [Linear-Feedback Shift Register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) algorithm on the 8 least significant bytes of the `X` of [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) public key.
 
